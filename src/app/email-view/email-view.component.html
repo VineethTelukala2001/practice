@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Include your head content here -->
+</head>
+
+<body style="margin: 0; height: 100%;">
+
+  <div style="background-color: #eaeaf1; min-height: 90vh;">
+
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <!-- <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse " style="background: linear-gradient(45deg, #312a42, #312a42);font-size: small;"> -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+      <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-16"><h6>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <div *ngIf="dashboardrole">
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/dashboard" class="nav-link px-0 align-middle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                    </svg>
+                    &nbsp;<span class="ms-1 d-none d-sm-inline">Home</span>
+              </a>
+            </li>
+          </div>
+        <div *ngIf="adminrole">
+          <li class="nav-item" style="margin-top: 10px;">
+            &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/admin-view" class="nav-link px-0 align-middle custom-font">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>&nbsp;
+              <span class="ms-1 d-none d-sm-inline">Admin</span>
+            </a>
+          </li>
+        </div>
+          <div *ngIf="domainrole">
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/domain-view" class="nav-link px-0 align-middle">
+                  <i class="fas fa-globe" style="font-size: 16px;"></i>&nbsp;<span class="ms-1 d-none d-sm-inline">Domains</span>
+              </a>
+            </li>
+          </div>
+          <div *ngIf="hostingrole">   
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/hosting-view" class="nav-link px-0 align-middle">
+                <i class="pi pi-database" style="color: rgb(148, 148, 148);"></i>&nbsp;
+                <span class="ms-1 d-none d-sm-inline">Host</span>
+              </a>
+            </li>
+          </div> 
+            <div *ngIf="hostdomainrole">
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a routerLink="/hostdomainmap-view" class="nav-link px-0 align-middle">
+                  <i class="fas fa-map-marked-alt" style="color: rgb(148, 148, 148);"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline" style="color: rgb(148, 148, 148);">Hostdomain Map</span>
+                </a>
+              </li>
+            </div>
+            <div *ngIf="emailrole">
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a [ngClass]="{ 'active-link': isActive('/email-view') }" routerLink="/email-view" class="nav-link px-0 align-middle">
+                  <i class="bi bi-shield-lock" style="font-size: 16px;"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline">Credentials</span>
+                </a>
+              </li>
+            </div>
+              <div *ngIf="itreturnsrole">
+                <li class="nav-item" style="margin-top: 10px;">
+                  &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/it-view" class="nav-link px-0 align-middle">
+                    <i class="pi pi-id-card" style="font-size: 16px;"></i>&nbsp;
+                    <span class="ms-1 d-none d-sm-inline">IT Credentials</span>
+                  </a>
+                </li>
+              </div> 
+            <div *ngIf="passwordsrole">  
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/passwords-list" class="nav-link px-0 align-middle">
+                  <i class="pi pi-lock" style="font-size: 16px;"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline">Passwords Expiry Status</span>
+                </a>
+              </li>
+            </div>
+          </ul></h6>
+      </div>
+    </div>
+    
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light  fixed-top" style="background: linear-gradient(45deg, #000B19, #000B19);">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Brand -->
+      <a class="navbar-brand" style="height: 64px; margin-top: 0px;">
+        &nbsp;<img src="../../assets/pbt.png" class="bottom" style="height: 63px; width: 180px ; left: 0;"
+          loading="lazy" />
+      </a>
+      <!-- Search form -->
+    
+       
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+        
+
+        <!-- Icon -->
+        <li class="nav-item me-3 me-lg-0">
+          <!-- <a class="nav-link">
+            <i class="fab fa-github"></i>
+          </a> -->
+        </li>
+          <p-dialog header="Logout Confirmation" [(visible)]="displayLogoutDialog"  [modal]="true" style="border-radius: 100%;">
+            <p>Are you sure you want to Logout ?</p>
+            <p-footer>
+              <button type="button" pButton icon="pi pi-check" style="background-color: #000B19;" (click)="logout()" label="Yes"></button>&nbsp;&nbsp;&nbsp;
+              <button type="button" pButton icon="pi pi-times" style="background-color: #000B19;" (click)="cancelLogout()" label="No"></button>
+            </p-footer>
+          </p-dialog>              
+           <button  style="height: 50px; width: 60px; background-color: #000B19;font-style:roman;border: #000B19;margin-top:0% ;" pButton type="button" icon="pi pi-power-off" (click)="showDialog()"></button>
+    
+    
+    
+  
+          <!-- Avatar -->
+       
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+        </ul>
+      </div>        
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <p-dialog header="Delete Confirmation" [(visible)]="displayDeleteDialog" [modal]="true" [style]="{ 'border-radius': '20px' }">
+    <p>Are you sure you want to delete this Credential ?</p>
+    <p-footer>
+      <button type="button" pButton icon="pi pi-check" style="background-color: #000B19;"
+              (click)="confirmDelete()" label="Yes"></button>&nbsp;&nbsp;&nbsp;
+      <button type="button" pButton icon="pi pi-times" style="background-color: #000B19;"
+              (click)="cancelDelete()" label="No"></button>
+    </p-footer>
+  </p-dialog>
+  <!--Main layout-->
+  <main style="margin-top: 80px;">
+    <!-- Correct viewport settings -->
+    <div class="container pt-4" style="background-color: #eaeaf1;">  
+      <div>
+        <div  >
+          <h5>Credentials Status</h5>
+          <div aria-label="breadcrumb" style="float: right;margin-top: -31px; list-style-type: none;">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item active">Credentials Status</li>
+            </ol>
+          </div>
+        </div>
+      <p-card>
+        <button style="font-size: 11px; float: right; background-color: #ff414b;" type="button" (click)="adduser()"
+        class="btn btn-danger waves-effect btn-label waves-light r-red pull-right" data-bs-toggle="modal"
+        data-bs-target=".transaction-detailModal"><i class="bx bx-plus label-icon"></i>
+      <strong>+ Add Credentials</strong></button>
+        <div class="col-sm-12 col-md-6">
+          <div id="datatable_filter" class="dataTables_filter text-left" style="text-align: left !important;">
+            <label>
+              <input autocomplete="off" type="text" class="form-control" [(ngModel)]="searchText"
+                placeholder="Search " (keyup)="applyFilter(searchText)" />
+            </label>
+          </div>
+        </div><br>
+        <table class="table table-bordered dt-responsive nowrap sm dataTable no-footer dtr-inline" style="font-size:small">
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <!-- <th>Credential Id</th> -->
+              <th>Email Id</th>
+              <th>User Name</th>
+              <th>Domain Name</th>
+              <!-- <th>Password</th> -->
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let email of emailDetails"> -->
+              <tr class="odd" style="  vertical-align: middle;" *ngFor="let email of emailDetails  | paginate: { id: 'emailPagination', itemsPerPage: 6, currentPage: page, totalItems: totalCount }; let i=index">
+              <!-- <td class="sorting_1 dtr-control" style="color:blue; cursor: pointer;">
+                {{ email.emailId }}
+              </td> -->
+              <td>{{ email.email }}</td>
+              <td>{{ email.username }}</td>
+              <td>{{ email.domainName }}</td>
+              <!-- <td>{{ email.password }}</td> -->
+              <td class="text-center">
+                <button type="button" (click)="edit(email.emailId, 'edit')"
+                  class="btn btn-success waves-effect edit-btn waves-light btn-sm btn-edit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                      d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                  </svg>
+  
+                </button> &nbsp;
+                <button (click)="edit(email.emailId, 'view')" class="btn btn-primary waves-effect edit-btn waves-light btn-sm btn-view">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                  </svg>
+                </button> &nbsp;
+                <button style="margin-left: 5px; background-color: #ff414b;" (click)="deleteemail(email.emailId)"
+                  class="btn btn-danger waves-effect edit-btn waves-light btn-sm"><svg xmlns="http://www.w3.org/2000/svg"
+                    width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path
+                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                    <path
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                  </svg></button>
+  
+              </td>
+            </tr>
+            <tr *ngIf="!emailDetails || emailDetails.length === 0">
+              <td colspan="8" style="text-align: center; font-size: 0.8rem;">
+                No Data Found
+              </td>
+            </tr>
+  
+          </tbody>
+        </table>
+        <pagination-controls id="emailPagination" (pageChange)="pageChange($event)"
+        *ngIf="emailDetails && emailDetails.length" style="font-size: small;"></pagination-controls>
+        <div class="row">
+          <div class="col-md-10">
+           
+        </div>
+        <div class="col-md-2">
+       <p style="margin-top: -26%; color:#0a0a0a; font-size: small;">Total Count:[{{totalCount}}]</p>
+        </div>
+    </div>
+      </p-card>
+    </div>
+    </div>
+     </main>

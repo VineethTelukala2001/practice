@@ -1,0 +1,121 @@
+body {
+    background-color: #fbfbfb;
+    }
+    @media (min-width: 991.98px) {
+    main {
+    padding-left: 240px;
+    }
+    }
+    
+    /* Sidebar */
+    .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 85px 0 0; /* Height of navbar */
+    /* box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%); */
+    width: 240px;
+    z-index: 600;
+    }
+    
+    @media (max-width: 991.98px) {
+    .sidebar {
+    width: 100%;
+    }
+    }
+    .sidebar .active {
+    border-radius: 0px;
+    /* box-shadow: 0 20px 50px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 12%); */
+    }
+    
+    .sidebar-sticky {
+    position: relative;
+    top: 0;
+    
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+    input {
+      font-size: small;
+    }
+    /* admin-view.component.css */
+  
+  /* Increase the width of p-card */
+  ::ng-deep .p-card {
+    width: 100%; /* Set the width to 100% */
+    /* Additional styling as needed */
+  }
+  .text-danger {
+    color: red;
+  }
+
+
+  #sidebarMenu {
+    background-image: url('../../assets/side8.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-size: small;
+  }
+  
+  #sidebarMenu .sidebar {
+    background: none;
+  }
+  
+  /* styles.css or styles.scss */
+  .nav-item {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    color: white;
+  }
+  
+  .font-size-17 {
+    font-size: 18px; /* Adjust the font size as needed */
+  }
+  
+  .font-weight-bold {
+    font-weight: bold; /* Make the text bold */
+    /* You can also use font-weight: 600; for a bold effect */
+  }
+
+  .btn-sm svg {
+    width: 15px; /* Adjust the width as needed */
+    height: 15px; /* Adjust the height as needed */
+    margin-top: -1px; /* Adjust the margin-top as needed */
+  }
+
+  .btn-edit {
+    background-color: #19064c; /* Set the default background color */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+  }
+  .btn-view {
+    background-color: #19064c; /* Set the default background color */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+  }
+  .btn-delete {
+    background-color: #19064c; /* Set the default background color */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .btn-edit:hover,
+  .btn-view:hover {
+    background-color: #ff414b; /* Set the background color on hover */
+  }
+  .breadcrumb-item a {
+    text-decoration: none;
+  }
+  
+  
+  
+  
+  
+  
+  

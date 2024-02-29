@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Include your head content here -->
+</head>
+
+<body style="margin: 0; height: 100%;">
+
+  <div style="background-color: #eaeaf1; min-height: 90vh;">
+
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <!-- <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse " style="background: linear-gradient(45deg, #312a42, #312a42);font-size: small;"> -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+      <div class="position-sticky" >
+      <div class="list-group list-group-flush mx-3 mt-16"><h6>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/dashboard" class="nav-link px-0 align-middle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                    </svg>
+                    &nbsp;<span class="ms-1 d-none d-sm-inline">Home</span>
+              </a>
+          </li>
+          <li class="nav-item" style="margin-top: 10px;">
+            &nbsp;&nbsp;<a [ngClass]="{ 'active-link': isActive('/admin-view') }" routerLink="/admin-view" class="nav-link px-0 align-middle custom-font">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>&nbsp;
+              <span class="ms-1 d-none d-sm-inline">Admin</span>
+            </a>
+          </li>
+          
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/domain-view" class="nav-link px-0 align-middle">
+                  <i class="fas fa-globe" style="font-size: 16px;"></i>&nbsp;<span class="ms-1 d-none d-sm-inline">Domains</span>
+              </a>
+          </li>
+              
+            <li class="nav-item" style="margin-top: 10px;">
+              &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/hosting-view" class="nav-link px-0 align-middle">
+                <i class="pi pi-database" style="color: rgb(148, 148, 148);"></i>&nbsp;
+                <span class="ms-1 d-none d-sm-inline">Host</span>
+              </a>
+            </li>
+              
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a routerLink="/hostdomainmap-view" class="nav-link px-0 align-middle">
+                  <i class="fas fa-map-marked-alt" style="color: rgb(148, 148, 148);"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline" style="color: rgb(148, 148, 148);">Hostdomain Map</span>
+                </a>
+              </li>
+              
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/email-view" class="nav-link px-0 align-middle">
+                  <i class="bi bi-shield-lock" style="font-size: 16px;"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline">Credentials</span>
+                </a>
+              </li>
+               
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/it-view" class="nav-link px-0 align-middle">
+                  <i class="pi pi-id-card" style="font-size: 16px;"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline">IT Credentials</span>
+                </a>
+              </li>
+              <li class="nav-item" style="margin-top: 10px;">
+                &nbsp;&nbsp;<a style="color: rgb(148, 148, 148);" routerLink="/passwords-list" class="nav-link px-0 align-middle">
+                  <i class="pi pi-lock" style="font-size: 16px;"></i>&nbsp;
+                  <span class="ms-1 d-none d-sm-inline">Passwords Expiry Status</span>
+                </a>
+              </li>
+          </ul></h6>
+      </div>
+    </div>
+    
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light  fixed-top" style="background: linear-gradient(45deg, #000B19, #000B19);">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Brand -->
+      <a class="navbar-brand" style="height: 64px; margin-top: 0px;">
+        &nbsp;<img src="../../assets/pbt.png" class="bottom" style="height: 63px; width: 180px ; left: 0;"
+          loading="lazy" />
+      </a>
+      <!-- Search form -->
+    
+       
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+        
+
+        <!-- Icon -->
+        <li class="nav-item me-3 me-lg-0">
+          <!-- <a class="nav-link">
+            <i class="fab fa-github"></i>
+          </a> -->
+        </li>
+        <p-dialog header="Confirmation" [(visible)]="displayDialog"  [modal]="true" style="border-radius: 100%;">
+          <p>Are you sure you want to Logout ?</p>
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" style="background-color: #000B19;" (click)="logout()" label="Yes"></button>&nbsp;&nbsp;&nbsp;
+            <button type="button" pButton icon="pi pi-times" style="background-color: #000B19;" (click)="cancelLogout()" label="No"></button>
+          </p-footer>
+        </p-dialog>              
+         <button  style="height: 50px; width: 60px; background-color: #000B19;font-style:roman;border: #000B19;margin-top:0% ;" pButton type="button" icon="pi pi-power-off" (click)="showDialog()"></button>
+  
+        <!-- Avatar -->
+     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+      </ul>
+    </div>        
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+
+<!--Main layout-->
+<main style="margin-top: 80px;">
+      <div class="container pt-4">
+      <div style="padding:1" *ngIf="!view"
+        class="page-title-box d-sm-flex align-items-center justify-content-between">
+        <h5 *ngIf="!isEdit" class="mb-sm-0 font-size-18">
+          <i class="bx bxs-user-check"></i>Add User
+        </h5>
+        <h5 *ngIf="isEdit" class="mb-sm-0 font-size-18"><i class="bx bxs-user-check"></i>Edit User</h5>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"> <a routerLink="/dashboard" class="waves-effect">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item"><a routerLink="/admin-view" class="waves-effect">User Status</a></li>
+            <li *ngIf="!isEdit" class="breadcrumb-item active">Add User</li>
+            <li *ngIf="isEdit" class="breadcrumb-item active">Edit User</li>
+          </ol>
+        </div>
+      </div>
+      <div style="padding:1px" *ngIf="view"
+        class="page-title-box d-sm-flex align-items-center justify-content-between">
+        <h5 class="mb-sm-0 font-size-18"><i class="bx bxs-user-check"></i>View User</h5>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"> <a routerLink="/dashboard" class="waves-effect">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item"><a routerLink="/admin-view" class="waves-effect">User Status</a></li>
+            <li class="breadcrumb-item active">View User</li>
+          </ol>
+        </div>
+      </div>
+  <p-toast></p-toast>
+  <div class="card ml-2 mr-2 bg-white" style="width: 100%; max-width: 1080px; height: 270px; margin-top: 7px;">
+      <div class="container-fluid">
+          <div class="card-body">
+            <div class="container">
+              <div class="card-body">
+                <!-- <h4 style="color: rgba(15, 2, 2, 0.89);">Admin Registration</h4> -->
+                <!-- <hr> -->
+                <form [formGroup]="myForm">
+                  <div class="row">
+                    <div class="col-6 col-md-4">
+                      <div class="form-group">
+                        <label for="name" style="margin-bottom: 5px;">Name</label>
+                          <input style="font-size: small;" type="text" placeholder="Enter Name" class="form-control" [ngClass]="{'is-invalid': submitted && myForm.controls['name'].errors}"
+                          formControlName="name" autocomplete="off" maxlength="100">
+                          <span *ngIf="myForm.get('name')?.hasError('required') && myForm.get('name')?.touched" class='text-danger' style="font-size: small;">Name is Required</span><br>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="emailId" style="margin-bottom: 5px;">Email Id:</label>
+                          <input style="font-size: small;" type="email" placeholder="Enter Email Id " class="form-control"[ngClass]="{'is-invalid': submitted && myForm.controls['emailId'].errors}"
+                          formControlName="emailId" required maxlength="40">
+                          <span *ngIf="myForm.get('emailId')?.hasError('required') && myForm.get('emailId')?.touched" class='text-danger' style="font-size: small;">Email Id is required</span><br>
+                      </div>
+                    </div> -->
+                    <div class="col-6 col-md-4">
+                      <div class="form-group">
+                        <label for="emailId" style="margin-bottom: 5px;">Email Id</label>
+                        <input style="font-size: small;" type="email" placeholder="Enter Email Id" class="form-control"
+                          [ngClass]="{'is-invalid': submitted && myForm.controls['emailId'].errors}"
+                          formControlName="emailId" required  maxlength="100"/>
+                        <span
+                          *ngIf="myForm.get('emailId')?.hasError('required') && myForm.get('emailId')?.touched"
+                          class='text-danger'
+                          style="font-size: small;"
+                        >
+                          Email Id is Required
+                        </span>
+                        <span
+                          *ngIf="myForm.get('emailId')?.hasError('email') && myForm.get('emailId')?.touched"
+                          class='text-danger'
+                          style="font-size: small;"
+                        >
+                          Invalid Email Format
+                        </span>
+                        <br />
+                      </div>
+                    </div>
+                    
+                    <div class="col-6 col-md-4">
+                      <div class="form-group">
+                        <label for="userName" style="margin-bottom: 5px;">User Name</label>
+                          <input style="font-size: small;" type="text" placeholder="Enter User Name" class="form-control" [ngClass]="{'is-invalid': submitted && myForm.controls['userName'].errors}"
+                          formControlName="userName" maxlength="100">
+                          <span *ngIf="myForm.get('userName')?.hasError('required') && myForm.get('userName')?.touched" class='text-danger' style="font-size: small;">User Name is Required</span><br>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="userName">Username:</label>
+                          <input style="font-size: small;" type="text" placeholder="Enter Username" class="form-control"
+                              [ngClass]="{
+                                  'is-invalid': (submitted || myForm.get('userName')?.touched) && myForm.get('userName')?.invalid
+                              }"
+                              formControlName="userName" maxlength="30">
+                          <span *ngIf="(submitted || myForm.get('userName')?.touched) && myForm.get('userName')?.hasError('required')"
+                              class='text-danger' style="font-size: small;">Username is required</span><br>
+                      </div>
+                  </div> -->
+                  
+                  
+                    <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                          <input style="font-size: small;" type="text" placeholder="Enter Password" class="form-control" [ngClass]="{'is-invalid': submitted && myForm.controls['password'].errors}"
+                               [type]="showPassword ? 'text' : 'password'"
+                               formControlName="password">
+                               <span *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched" class='text-danger' padding>Password is required</span>
+                            
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label for="password" style="margin-bottom: 5px;">Password:</label>
+                        <div class="input-group">
+                          <input style="font-size: small;" type="{{ showPassword ? 'text' : 'password' }}" placeholder="Enter Password" maxlength="10" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && myForm.controls['password'].errors}" formControlName="password">
+                            <i class="fas eye-icon" (click)="togglePasswordVisibility()" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+
+                        </div>
+                        <span *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched" class='text-danger' style="font-size: small;">Password is Required</span>
+                      </div>
+                    </div> -->
+
+                    <div class="col-6 col-md-4">
+                      <div class="form-group position-relative">
+                        <label for="password" style="margin-bottom: 5px;">Password</label>
+                        <div class="input-group">
+                          <input style="font-size: small;" type="{{ showPassword ? 'text' : 'password' }}" placeholder="Enter Password" maxlength="10" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && myForm.controls['password'].errors}" formControlName="password">
+                        </div>
+                        
+                        <i class="fas eye-icon" (click)="togglePasswordVisibility()" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+                      </div>
+                      <span *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched" class='text-danger' style="font-size: small;">Password is Required</span>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                      <div class="form-group">
+                          <label for="phoneNo" style="margin-bottom: 5px;">Phone Number</label>
+                            <input style="font-size: small;" pInputText id="number" pKeyFilter="num" placeholder="Enter Phone Number"
+                                  class="form-control" autocomplete="off"
+                                  [ngClass]="{'is-invalid': submitted && myForm.controls['phoneNo'].errors}" maxlength="10"
+                                  formControlName="phoneNo">
+                            <span
+                                  *ngIf="myForm.get('phoneNo')?.hasError('required') && myForm.get('phoneNo')?.touched"
+                                  class='text-danger' style="font-size: small;">Phone Number is Required</span><br>
+                      </div>
+                    </div>
+                     
+                    <div class="col-6 col-md-4">
+                      <div class="form-group">
+                        <label style="margin-bottom: 5px;">Role</label>
+                        <div class="position-relative">
+                          <select style="font-size: small;" class="form-control" id="role" placeholder="Select One"
+                            [ngClass]="{'is-invalid': submitted && myForm.controls['role'].errors}"
+                            formControlName="role">
+                            <option disabled selected value="">Select Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Host">Host</option>
+                            <option value="Credentials">Credentials</option>
+                            <option value="IT Credentials">IT Credentials</option>
+                          </select>
+                          <i class="fas fa-caret-down position-absolute bottom-0 end-0 translate-middle-y me-3" style="pointer-events: none;"></i>
+                        </div>
+                        <span *ngIf="myForm.get('role')?.hasError('required') && myForm.get('role')?.touched" class='text-danger' style="font-size: small;">Role is Required</span><br>
+                      </div>
+                    </div>
+              </div>
+              <button type="button" class="btn btn-danger" *ngIf="!view"  (click)="onsubmit()"  style="float: right; background-color: #ff414b;">Submit</button>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+    
+

@@ -1,0 +1,54 @@
+  <div class="bg-img">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="card" style="width: 26rem; align-items: center;">
+
+                <div class="card-body">
+                    <div>
+                        <img src="../../assets/pbt.png" style="max-width: 200px; margin-left: 70px;"
+                            alt="Logo">
+                    </div>
+                    <br>
+                    <div>
+                        <form  [formGroup]="loginform">
+                            <div>
+                                <label style="margin-bottom: 5px;">User Name</label>
+                                <input style="width:350px;" type="text" placeholder="Enter User Name"
+                                    formControlName="emailId"
+                                    [ngClass]="{'is-invalid': submitted && loginform.get('emailId')?.errors}"
+                                    class="form-control">
+                                    <span *ngIf="loginform.get('emailId')?.hasError('required') && loginform.get('emailId')?.touched" class='text-danger' padding></span>
+                            </div>
+                            
+                            <div>
+                                    <label style="margin-bottom: 5px;">Password</label>
+                                        <div class="password-input-container">
+                                            <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Enter Password" 
+                                                [ngClass]="{'is-invalid': submitted && loginform.get('password')?.errors}" formControlName="password" class="form-control">
+                                            <button type="button" (click)="togglePassword()" class="password-toggle-btn">
+                                                <i class="{{ showPassword ? 'fa fa-eye-slash' : 'fa fa-eye' }}"></i>
+                                            </button>
+                                        </div>
+                                    <span *ngIf="loginform.get('password')?.hasError('required') && loginform.get('password')?.touched" class='text-danger' padding></span> 
+                            </div>
+                            <div *ngIf="!enable && disable">
+                              <label>OTP</label>
+                              <input type="text" placeholder="Enter OTP" formControlName="otp" class="form-control">
+                          </div><br>
+                            <div class="col" *ngIf="enable">
+                                <button type="button" (click)="otp()" class="btn btn-danger"
+                                    style="float: right;width: 100%;">Send OTP</button>
+                            </div>
+                           
+                            <div *ngIf="disable">
+                                <button type="button" style="width: 100%;" (click)="login()"
+                                    class="btn btn-danger">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-toast></p-toast>
+  
